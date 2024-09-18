@@ -1,5 +1,6 @@
 package com.ayloncarrijo.outlanders;
 
+import com.ayloncarrijo.outlanders.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,12 +16,13 @@ import software.bernie.geckolib3.GeckoLib;
 public class Outlanders {
   public static final String MOD_ID = "outlanders";
 
-  public Outlanders(final FMLJavaModLoadingContext context) {}
+  public Outlanders(final FMLJavaModLoadingContext context) {
+    GeckoLib.initialize();
+    Items.registerRegistry(context.getModEventBus());
+  }
 
   @SubscribeEvent
-  public static void initialize(final FMLCommonSetupEvent event) {
-    GeckoLib.initialize();
-  }
+  public static void initialize(final FMLCommonSetupEvent event) {}
 
   @Mod.EventBusSubscriber(modid = Outlanders.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
   public static class Client {
