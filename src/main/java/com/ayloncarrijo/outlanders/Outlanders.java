@@ -1,5 +1,6 @@
 package com.ayloncarrijo.outlanders;
 
+import com.ayloncarrijo.outlanders.world.entity.EntityTypes;
 import com.ayloncarrijo.outlanders.world.item.Items;
 import com.ayloncarrijo.outlanders.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,6 +22,7 @@ public class Outlanders {
     GeckoLib.initialize();
     Items.registerRegistry(context.getModEventBus());
     Blocks.registerRegistry(context.getModEventBus());
+    EntityTypes.registerRegistry(context.getModEventBus());
   }
 
   @SubscribeEvent
