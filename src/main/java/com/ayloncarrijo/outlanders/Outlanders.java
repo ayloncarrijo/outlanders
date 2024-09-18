@@ -1,6 +1,7 @@
 package com.ayloncarrijo.outlanders;
 
 import com.ayloncarrijo.outlanders.world.item.Items;
+import com.ayloncarrijo.outlanders.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +20,7 @@ public class Outlanders {
   public Outlanders(final FMLJavaModLoadingContext context) {
     GeckoLib.initialize();
     Items.registerRegistry(context.getModEventBus());
+    Blocks.registerRegistry(context.getModEventBus());
   }
 
   @SubscribeEvent
