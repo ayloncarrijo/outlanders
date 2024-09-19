@@ -1,5 +1,6 @@
 package com.ayloncarrijo.outlanders;
 
+import com.ayloncarrijo.outlanders.client.renderer.item.ItemProperties;
 import com.ayloncarrijo.outlanders.world.entity.EntityTypes;
 import com.ayloncarrijo.outlanders.world.item.Items;
 import com.ayloncarrijo.outlanders.world.level.block.Blocks;
@@ -31,7 +32,9 @@ public class Outlanders {
   @Mod.EventBusSubscriber(modid = Outlanders.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
   public static class Client {
     @SubscribeEvent
-    public static void initialize(final FMLClientSetupEvent event) {}
+    public static void initialize(final FMLClientSetupEvent event) {
+      event.enqueueWork(() -> ItemProperties.registerAll());
+    }
   }
 
   @Mod.EventBusSubscriber(modid = Outlanders.MOD_ID, bus = Bus.MOD, value = Dist.DEDICATED_SERVER)

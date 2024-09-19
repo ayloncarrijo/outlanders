@@ -1,0 +1,6 @@
+{
+  "parent": "outlanders:item/eye_bone",
+  "textures": {
+    "layer0": "outlanders:item/eye_bone_left"
+  }
+}
