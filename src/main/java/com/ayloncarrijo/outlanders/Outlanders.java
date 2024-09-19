@@ -4,6 +4,7 @@ import com.ayloncarrijo.outlanders.client.renderer.item.ItemProperties;
 import com.ayloncarrijo.outlanders.world.entity.EntityTypes;
 import com.ayloncarrijo.outlanders.world.item.Items;
 import com.ayloncarrijo.outlanders.world.level.block.Blocks;
+import com.ayloncarrijo.outlanders.world.level.block.entity.BlockEntityTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +25,7 @@ public class Outlanders {
     Items.registerRegistry(context.getModEventBus());
     Blocks.registerRegistry(context.getModEventBus());
     EntityTypes.registerRegistry(context.getModEventBus());
+    BlockEntityTypes.registerRegistry(context.getModEventBus());
   }
 
   @SubscribeEvent
