@@ -1,11 +1,13 @@
 package com.ayloncarrijo.outlanders;
 
+import com.ayloncarrijo.outlanders.client.renderer.block.entity.EyeBoneRenderer;
 import com.ayloncarrijo.outlanders.client.renderer.item.ItemProperties;
-import com.ayloncarrijo.outlanders.world.entity.EntityTypes;
+import com.ayloncarrijo.outlanders.world.entity.Entities;
 import com.ayloncarrijo.outlanders.world.item.Items;
 import com.ayloncarrijo.outlanders.world.level.block.Blocks;
-import com.ayloncarrijo.outlanders.world.level.block.entity.BlockEntityTypes;
+import com.ayloncarrijo.outlanders.world.level.block.entity.BlockEntities;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -24,8 +26,8 @@ public class Outlanders {
     GeckoLib.initialize();
     Items.registerRegistry(context.getModEventBus());
     Blocks.registerRegistry(context.getModEventBus());
-    EntityTypes.registerRegistry(context.getModEventBus());
-    BlockEntityTypes.registerRegistry(context.getModEventBus());
+    Entities.registerRegistry(context.getModEventBus());
+    BlockEntities.registerRegistry(context.getModEventBus());
   }
 
   @SubscribeEvent
@@ -36,6 +38,11 @@ public class Outlanders {
     @SubscribeEvent
     public static void initialize(final FMLClientSetupEvent event) {
       event.enqueueWork(() -> ItemProperties.registerAll());
+    }
+
+    @SubscribeEvent
+    public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
+      event.registerBlockEntityRenderer(BlockEntities.EYE_BONE.get(), EyeBoneRenderer::new);
     }
   }
 

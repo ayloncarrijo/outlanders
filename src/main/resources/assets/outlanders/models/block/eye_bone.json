@@ -1,0 +1,6 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "outlanders:block/eye_bone"
+  }
+}

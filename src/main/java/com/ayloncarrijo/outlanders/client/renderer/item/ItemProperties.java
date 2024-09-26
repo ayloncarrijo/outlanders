@@ -13,7 +13,7 @@ public class ItemProperties {
             return -1.0F;
           }
 
-          return (float) entity.getLevel().getGameTime() / (20 * 16) % 1;
+          return (float) entity.getLevel().getGameTime() / (20 * 8) % 1;
         });
   }
 }
